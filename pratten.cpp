@@ -4,15 +4,15 @@ int main()
 {
     int n;
     cin >> n;
-    int i = 1;
+    int i = 0;
     int tem = 1;
-    while (i <= n)
+    while (i < n)
     {
-        int j = 1;
-        while (j <= i)
+        int j = 65 + n ;
+        while (j <= i + 65 + n)
         {
-
-            cout << i;
+            char tem = j-i-1;
+            cout << tem;
 
             j++;
         }

@@ -11,10 +11,14 @@ int main()
         if (div == 1)
         {
             cout << "power" << endl;
+            return true;
+            break;
+
         }
     }
     if (div != 1)
     {
-        cout << "not power" << endl;
+       cout << "not power " <<endl;
+       return false;
     }
 }

@@ -1,1 +1,1 @@
-arr[k]=arr[i];
+no of element

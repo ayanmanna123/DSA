@@ -7,9 +7,9 @@ using namespace std;
 int main()
 {
 
-    int a = 9;
-    int *ptr = &a;
-    int **ptr1 = &ptr;
+    // int a = 9;
+    // int *ptr = &a;
+    // int **ptr1 = &ptr;
     // cout << *ptr << endl;
     // cout << ptr << endl;
     // cout << *ptr << endl;
@@ -24,10 +24,11 @@ int main()
     // cout << &ptr1 << endl;
      
 
-    printnumber(ptr);
-    cout << *ptr << endl;
-    cout << a << endl;
-
+    // printnumber(ptr);
+    // cout << *ptr << endl;
+    // cout << a << endl;
+    int k=1;
+    cout << k%10 << endl;
 
 
 

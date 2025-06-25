@@ -10,7 +10,14 @@ public:
         this-> prev=NULL;
         this -> next=NULL;
     }
-
+~node() {
+    int val = this -> data;
+    if(next != NULL) {
+        delete next;
+        next = NULL;
+    }
+    cout << "memory free for node with data "<< val << endl;
+}
 };
 
 void print (node * head){
@@ -72,6 +79,38 @@ void insertanywhere(node* &head, node* &tail, int d, int position){
 
 
 }
+void deleteNode(int position, node* & head) {
+    //deleting first or start node
+    if (position == 1) {
+        node* temp = head;
+        if (temp->next != NULL) {
+            temp->next->prev = NULL;
+        }
+        head = temp->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else {
+        //deleting any middle node or last node
+        node* curr = head;
+        node* prev = NULL;
+        int cnt = 1;
+        while(cnt < position && curr != NULL) {
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        if (curr != NULL) {
+            if (curr->next != NULL) {
+                curr->next->prev = prev;
+            }
+            prev->next = curr->next;
+            curr->prev = NULL;
+            curr->next = NULL;
+            delete curr;
+        }
+    }
+}
 
 int main() {
      node* node1=new node(10);
@@ -86,6 +125,8 @@ int main() {
     insertattail(33,tail);
     print(head);
     insertanywhere(head,tail,56,position);
+    print(head);
+    deleteNode(3,head);
     print(head);
 
 

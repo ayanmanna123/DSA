@@ -8,10 +8,10 @@ int main() {
     st.push(2);
     st.push(3);
     st.push(4);
-    int s=1;
-    stack<int> st2;
-    st2.push(s);
-    st.swap(st2);
+    // int s=1;
+    // stack<int> st2;
+    // st2.push(s);
+    // st.swap(st2);
 //     cout << st.size()<<endl;
 //     cout << st.top() <<endl;
 //     st.pop();
@@ -27,6 +27,7 @@ int main() {
     st.pop();
 
   }
+  
   
 
 }

@@ -70,7 +70,7 @@ void lavelOrderTraversal(node *root)
 
         if (temp == NULL)
         {
-            cout << endl;
+            // cout << endl;
             if (!q.empty())
             {
                 q.push(NULL);
@@ -95,12 +95,12 @@ int main()
     node *root = NULL;
     root = buildtree(root);
     lavelOrderTraversal(root);
-    cout << " this is inlineorder "<<endl;
-    inlineorder(root);
-    cout << "this is preorder"<<endl;
-    preorder(root);
-    cout << "this is post order "<<endl;
-    postordet(root);
+    // cout << " this is inlineorder "<<endl;
+    // inlineorder(root);
+    // cout << "this is preorder"<<endl;
+    // preorder(root);
+    // cout << "this is post order "<<endl;
+    // postordet(root);
 
     // 3 2 4 -1 -1 5 -1 -1 1 7 -1 -1 8 -1 -1
 }

@@ -68,7 +68,7 @@ int main()
     root = buildtree(root);
     vector<int> ans;
     morristraversal(root, ans);
-    for (int i = 0; i < ans.size(); i++)
+    for (size_t i = 0; i < ans.size(); i++)
     {
         cout << ans[i] << " ";
     }

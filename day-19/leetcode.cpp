@@ -12,5 +12,6 @@ int main() {
         for (int val : sum) cout << val << " ";
          for (int val : sum) cout << val << " ";
           for (int val : sum) cout << val << " ";
+           for (int val : sum) cout << val << " "; for (int val : sum) cout << val << " ";
         cout << endl;
 }

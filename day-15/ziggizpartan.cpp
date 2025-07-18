@@ -1,89 +1,76 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
 using namespace std;
-class node
-{
+
+// Node definition
+class TreeNode {
 public:
-    int data;
-    node *left;
-    node *right;
-    node(int d)
-    {
-        this->data = d;
-        this->left = NULL;
-        this->right = NULL;
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+
+    TreeNode(int data) {
+        val = data;
+        left = right = nullptr;
     }
 };
-node *buildtree(node *root)
-{
-    cout << "enter the data ;" << endl;
+
+// Build binary tree recursively from user input
+TreeNode* buildTree() {
     int data;
     cin >> data;
-    root = new node(data);
-    if (data == -1)
-    {
-        return NULL;
-    }
-    cout << "enter data for left" << data << endl;
-    root->left = buildtree(root->left);
-    cout << "enter data for right " << data << endl;
-    root->right = buildtree(root->right);
+    if (data == -1) return nullptr;
+
+    TreeNode* root = new TreeNode(data);
+    cout << "Enter left of " << data << ": ";
+    root->left = buildTree();
+    cout << "Enter right of " << data << ": ";
+    root->right = buildTree();
+
     return root;
 }
 
-void lavelOrderTraversal(node *root)
-{
+// ZigZag level order traversal
+void zigZagTraversal(TreeNode* root) {
+    if (!root) return;
 
-    queue<node *> q;
+    queue<TreeNode*> q;
     q.push(root);
-    cout << root->data <<"|";
-    q.push(NULL);
-    
-    int count=1;
-    stack <int > ans;
-    while (!q.empty())
-    {
-        node *temp = q.front();
-       
-        q.pop();
+    bool leftToRight = true;
 
-        if (temp == NULL)
-        {
-            
-             while(ans.size()!=0){
-                 cout << ans.top() << " ";
-                 ans.pop();
-                
-            }
-            if (!q.empty())
-            {
-                q.push(NULL);
-            }
+    while (!q.empty()) {
+        int size = q.size();
+        vector<int> level(size);
+
+        for (int i = 0; i < size; i++) {
+            TreeNode* node = q.front(); q.pop();
+
+            // Place node value in correct index
+            int index = leftToRight ? i : size - i - 1;
+            level[index] = node->val;
+
+            if (node->left) q.push(node->left);
+            if (node->right) q.push(node->right);
         }
-        else
-        {  //  cout << temp->data << " ";
-            if (temp->left)
-            {
-                q.push(temp->left);
-                ans.push(temp->left->data);
-            }
-            if (temp->right)
-            {
-                q.push(temp->right);
-                ans.push(temp->right->data);
-            }
-        }
+
+        // Print current level
+        for (int val : level) cout << val << " ";
+        cout << endl;
+
+        leftToRight = !leftToRight;
     }
 }
 
-int main()
-{
-    node *root = NULL;
-    root = buildtree(root);
-    lavelOrderTraversal(root);
-    cout << " this is inlineorder "<<endl;
-    
-     
+// Main function
+int main() {
+    cout << "Enter tree data (use -1 for NULL):" << endl;
+    TreeNode* root = buildTree();
 
-    // 3 2 4 -1 -1 5 -1 -1 1 7 -1 -1 8 -1 -1
+    cout << "\nZigZag Level Order Traversal:\n";
+    zigZagTraversal(root);
+
+    return 0;
 }
-    
+
+//1 2 4 -1 -1 5 -1 -1 3 -1 6 -1 -1

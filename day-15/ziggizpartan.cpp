@@ -35,7 +35,7 @@ void lavelOrderTraversal(node *root)
 
     queue<node *> q;
     q.push(root);
-    cout << root->data <<" ";
+    cout << root->data <<"|";
     q.push(NULL);
     
     int count=1;

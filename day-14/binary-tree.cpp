@@ -62,6 +62,7 @@ void lavelOrderTraversal(node *root)
     queue<node *> q;
     q.push(root);
     q.push(NULL);
+    int count=0;
     while (!q.empty())
     {
         node *temp = q.front();
@@ -69,8 +70,8 @@ void lavelOrderTraversal(node *root)
         q.pop();
 
         if (temp == NULL)
-        {
-            // cout << endl;
+        {   count++;
+            cout << endl;
             if (!q.empty())
             {
                 q.push(NULL);
@@ -88,6 +89,7 @@ void lavelOrderTraversal(node *root)
             }
         }
     }
+     cout<<count<<endl;
 }
 
 int main()
@@ -95,6 +97,7 @@ int main()
     node *root = NULL;
     root = buildtree(root);
     lavelOrderTraversal(root);
+   
     // cout << " this is inlineorder "<<endl;
     // inlineorder(root);
     // cout << "this is preorder"<<endl;

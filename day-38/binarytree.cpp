@@ -45,7 +45,7 @@ void levelordertrevle(node *root)
         if (temp == NULL)
         {
             cout << endl;
-             
+
             if (!q.empty())
             {
                 q.push(NULL);
@@ -54,7 +54,7 @@ void levelordertrevle(node *root)
         else
         {
             cout << temp->data << " ";
-             if (temp->left)
+            if (temp->left)
             {
                 q.push(temp->left);
             }
@@ -65,11 +65,43 @@ void levelordertrevle(node *root)
         }
     }
 }
+void inordertreel(node *root)
+{
+
+    if (root == NULL)
+    {
+        return;
+    }
+    inordertreel(root->left);
+    cout << root->data << " ";
+    inordertreel(root->right);
+}
+void preordertrevel(node* root){
+    if(root==NULL){
+        return;
+    }
+    cout<< root->data <<" ";
+    preordertrevel(root->left);
+    preordertrevel(root->right);
+
+}
+void postotder(node* root){
+    if(root==NULL){
+        return;
+    }
+    postotder(root->left);
+    postotder(root->right);
+    cout<< root->data << " ";
+}
 int main()
 {
     node *root = buildtree(root);
 
     levelordertrevle(root);
+    cout<< endl;
+    inordertreel(root);
+    cout<< endl;
+    preordertrevel(root);
 }
 
 // 3 2 4 -1 -1 5 -1 -1 1 7 -1 -1 8 -1 -1

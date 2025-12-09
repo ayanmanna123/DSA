@@ -10,74 +10,78 @@ public:
         this->data = data;
         this->next = NULL;
     }
-    ~node(){
-        int value =this->data;
-        if(this->next != NULL){
+    ~node()
+    {
+        int value = this->data;
+        if (this->next != NULL)
+        {
             delete next;
-            this->next=NULL;
-
-            
+            this->next = NULL;
         }
         cout << "free ho cuka hai" << value << endl;
     }
 };
-void insertathead(node* &head, int d)
+void insertathead(node *&head, int d)
 {
     node *tem = new node(d);
     tem->next = head;
     head = tem;
 }
-void inserttall(node* &tall, int d){
+
+void inserttall(node *&tall, int d)
+{
     node *tem = new node(d);
-    tall -> next= tem;
-    tall=tall->next;
+    tall->next = tem;
+    tall = tall->next;
 }
-void insertanyhear(node* &head,int position,int d,node * &tall){
-    if(position==0){
-        insertathead(head,d);
+void insertanyhear(node *&head, int position, int d, node *&tall)
+{
+    if (position == 0)
+    {
+        insertathead(head, d);
         return;
     }
-     
-    node* tem=head;
-    int cunt=0;
-    while(cunt < position-1){
-        tem=tem->next;
-        cunt ++;
 
+    node *tem = head;
+    int cunt = 0;
+    while (cunt < position - 1)
+    {
+        tem = tem->next;
+        cunt++;
     }
-    if(tem-> next ==NULL){
-        inserttall(tall,d);
+    if (tem->next == NULL)
+    {
+        inserttall(tall, d);
         return;
-        
     }
-    node * nodetoinsert=new node(d);
-    nodetoinsert->next=tem->next;
-    tem->next=nodetoinsert;
-
+    node *nodetoinsert = new node(d);
+    nodetoinsert->next = tem->next;
+    tem->next = nodetoinsert;
 }
-void deletnode(int position , node* &head){
-    if(position==0){
-        node* tem=head;
-        head =  head->next;
-        tem->next=NULL;
+void deletnode(int position, node *&head)
+{
+    if (position == 0)
+    {
+        node *tem = head;
+        head = head->next;
+        tem->next = NULL;
         delete tem;
     }
-    else{
-        node * current= head;
-        node* prev=NULL;
-        int count=0;
-        while(count < position){
-            prev=current;
-            current=current->next;
+    else
+    {
+        node *current = head;
+        node *prev = NULL;
+        int count = 0;
+        while (count < position)
+        {
+            prev = current;
+            current = current->next;
             count++;
-
         }
-        prev->next=current->next;
-        current->next=NULL;
+        prev->next = current->next;
+        current->next = NULL;
         delete current;
-
     }
-
 }
 void print(node *&head)
 {
@@ -96,7 +100,7 @@ int main()
     // cout << node1->data <<endl;
     // cout << node1->next <<endl;
     node *head = node1;
-    node *tall=node1;
+    node *tall = node1;
     int position = 4;
     print(head);
     // insertathead(head, 7);
@@ -106,11 +110,10 @@ int main()
     print(head);
     inserttall(tall, 17);
     print(head);
-    insertanyhear(head,position,34,tall);
-     print(head);
-     deletnode(3 , head);
-     print(head);
-     cout << head->data << endl;
-     cout << tall->data <<endl;
-
+    insertanyhear(head, position, 34, tall);
+    print(head);
+    deletnode(3, head);
+    print(head);
+    cout << head->data << endl;
+    cout << tall->data << endl;
 }

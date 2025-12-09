@@ -76,31 +76,34 @@ void inordertreel(node *root)
     cout << root->data << " ";
     inordertreel(root->right);
 }
-void preordertrevel(node* root){
-    if(root==NULL){
+void preordertrevel(node *root)
+{
+    if (root == NULL)
+    {
         return;
     }
-    cout<< root->data <<" ";
+    cout << root->data << " ";
     preordertrevel(root->left);
     preordertrevel(root->right);
-
 }
-void postotder(node* root){
-    if(root==NULL){
+void postotder(node *root)
+{
+    if (root == NULL)
+    {
         return;
     }
     postotder(root->left);
     postotder(root->right);
-    cout<< root->data << " ";
+    cout << root->data << " ";
 }
 int main()
 {
     node *root = buildtree(root);
 
     levelordertrevle(root);
-    cout<< endl;
+    cout << endl;
     inordertreel(root);
-    cout<< endl;
+    cout << endl;
     preordertrevel(root);
 }
 

@@ -32,7 +32,7 @@ void inserttall(node *&tall, int d)
 {
     node *tem = new node(d);
     tall->next = tem;
-    tall = tall->next;
+    tall = tem;
 }
 void insertanyhear(node *&head, int position, int d, node *&tall)
 {
@@ -101,8 +101,8 @@ int main()
     // cout << node1->next <<endl;
     node *head = node1;
     node *tall = node1;
-    int position = 4;
-    print(head);
+    // int position = 4;
+    // print(head);
     // insertathead(head, 7);
     inserttall(tall, 12);
     print(head);
@@ -110,10 +110,10 @@ int main()
     print(head);
     inserttall(tall, 17);
     print(head);
-    insertanyhear(head, position, 34, tall);
-    print(head);
-    deletnode(3, head);
-    print(head);
-    cout << head->data << endl;
-    cout << tall->data << endl;
+    // insertanyhear(head, position, 34, tall);
+    // print(head);
+    // deletnode(3, head);
+    // print(head);
+    // cout << head->data << endl;
+    // cout << tall->data << endl;
 }

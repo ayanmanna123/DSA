@@ -36,21 +36,21 @@ void marge(vector<int> &arr, int s, int e, int mid)
 
     for (int i = 0; i < temp.size(); i++)
     {
-        arr[s+i] = temp[i];
+        arr[s + i] = temp[i];
     }
 }
 
 void margesort(vector<int> &arr, int s, int e)
 {
 
-    if (s >= e) return; 
+    if (s >= e)
+        return;
 
-        int mid = (s + e) / 2;
-        margesort(arr, s, mid);
-        margesort(arr, mid + 1, e);
+    int mid = (s + e) / 2;
+    margesort(arr, s, mid);
+    margesort(arr, mid + 1, e);
 
-        marge(arr, s, e, mid);
-    
+    marge(arr, s, e, mid);
 }
 
 int main()
@@ -60,6 +60,6 @@ int main()
     for (int i = 0; i < arr.size(); i++)
     {
         cout << arr[i];
-        cout<<" ";
+        cout << " ";
     }
 }
